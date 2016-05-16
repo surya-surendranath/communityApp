@@ -5,6 +5,7 @@ body {
 
 a {
   color: #00B7FF;
+  text-decoration: none;
 }
 html {
   background-color:#ddd6f3;
@@ -46,4 +47,25 @@ img {
 
 #right-coverimg {
   list-style-type: none;
+}
+
+.Event {
+  margin-top: 170px;
+  font-size:20px;
+  text-align: center;
+}
+
+.Temples {
+  margin-top: 170px;
+  font-size:20px;
+  text-align: center;
+}
+
+.People {
+  margin-top: 170px;
+  font-size:20px;
+  text-align: center;
+}
+.translator {
+
 }

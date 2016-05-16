@@ -6,6 +6,6 @@
 
 4. Probably using javascript,API,jquery, databases etc.
 
-5. Week 1 - Complete implementing the API's, styling
+5.   Week 1 - Complete implementing the API's, styling
      Week 2 -All database works done
      Week 3 - Testing the app
