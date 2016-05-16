@@ -13,6 +13,57 @@ module.exports = router;
 
  router.get('/:id', function(req, res, next) {
   db.getAll('events', function(err, data) {
- res.render('eventview',{Events:data});
+ res.render('eventview',{Events:data})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ;
  })
  });
