@@ -1,0 +1,18 @@
+<label id="profile" >Hi {{this.user}}</label>
+<br>
+
+<h1>Welcome to WBConnect</h1>
+
+<div id="peoplelist" >
+  {{#each name}}
+  <br>
+  <p>*{{first_name}} {{last_name}}</p>
+  <p>{{current_location}}</p>
+ 
+</div>
+{{/each}}
+
+<form method="POST" id ="addNew" action="/newuser" >
+                                              
+                               <input type="submit" class="dropbtn" value="Back to Home"></input>
+                              </form>   
