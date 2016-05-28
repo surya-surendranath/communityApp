@@ -5,6 +5,10 @@ var config = require('../knexfile')
 var knex = Knex(config[process.env.NODE_ENV || 'development'])
 var db = require('../lib/db')(knex)
 var model = require('../lib/model') (knex)
+var app = require('express')();
+
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('login', { title: 'Wellington Indian Community' });
@@ -15,7 +19,7 @@ router.get('/new-user', function(req, res, next) {
 });
 
  router.post('/', function(req, res, next) {
- db.addNew('users',req.body, function(err,data){
+ db.addNew('userInfo',req.body, function(err,data){
   res.render('newuser',{});
  })
  
@@ -24,49 +28,93 @@ router.post('/people', function(req, res, next) {
 
   db.getAll('userInfo', function(err, data) {
    
- res.render('people',{name:data})
+ res.render('people',{name:data,user:req.body.first_name})
 })
 });
 
 
+app.get('/socket', function(req, res){
+  res.sendFile(__dirname + '/socket.html');
+});
 
+app.post('/socket', function(req, res, next){
+  
+  res.sendFile(__dirname + '/socket.html');
+});
+router.post('/socket', function(req, res, next){
+  
+  res.sendFile(__dirname + '/socket.html');
+});
+
+router.post('/login', function(req, res, next){
+  
+   res.render('login',{ title: 'Wellington Indian Community' })
+});
+
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    console.log('message: ' + msg);
+    console.log("hdhd")
+  });
+});
 router.post('/newuser', function(req, res, next) {
 
-  model.login(req.body.name, req.body.password)
-  .then(function (user) {
-    db.getAllSort('userInfo', function(err, data) {
-      
-    res.render('main',{user:req.body.name,name:data});
+  model.login(req.body.first_name, req.body.password)
+  console.log(req.body,"hi")
+ // .then(function(checkPassword) {
+    db.getAllSort('users', function(err, data) {
+      console.log(req.body.first_name,"hi")
+    res.render('main',{user:req.body.first_name,name:data,image:data.image});
   })
-})
+  })
+router.post('/new-user', function(req, res, next) {
 
-  .catch(function(err) {
-    res.render('newuser',{message:''})
+  
+  console.log(req.body,"hi")
+ // .then(function(checkPassword) {
+    db.getAllSort('users', function(err, data) {
+      console.log(req.body.first_name,"hi")
+    res.render('main',{user:req.body.first_name,name:data,image:data.image});
   })
+
+
+ // .catch(function(err) {
+ //   res.render('newuser',{message:''})
+ // })
 
 });
  router.post('/main', function(req, res, next) {
 
-
- 
-
   db.getAllSort('userInfo', function(err, data) {
     db.findOne('userInfo', {first_name:req.body.first_name}, function(err, info){
-      db.addNew('userInfo',{first_name:req.body.first_name,birth_place:req.body.birth_place,image:info.image,last_name:info.last_name,current_location:info.current_location}, function(err,data){
+
+      db.addNew('users',{first_name:req.body.first_name,feeds:req.body.feeds,image:info.image,last_name:info.last_name,current_location:info.current_location}, function(err,data){
     console.log(req.body,"jdfhdj")
      console.log(req.body.first_name,"sdjfhdskj")
        console.log(info,"sdjfhdskj")
         console.log(info.image,"sdjfhdskj")
-        db.getAllSort('userInfo', function(err, data) {
- res.render('main',{name:data,user:req.body.first_name,infos:info.image})
+        db.getAllSort('users', function(err, data) {
+ res.render('main',{name:data,user:req.body.first_name,infos:info.image,image:info.image})
 }) 
 });
 })
   })
 })
+ 
+
+router.post('/events', function(req, res, next) {
+
+  db.getAll('events', function(err, data) {
+ res.render('eventview',{Events:data,user:req.body.first_name})
+
+})
+})
+
+
+
 module.exports = router;
 
- router.get('/:id', function(req, res, next) {
+ router.post('/:id', function(req, res, next) {
 
   db.getAll('events', function(err, data) {
  res.render('',{Events:data})
@@ -78,9 +126,6 @@ module.exports = router;
  router.post('/new-user', function(req, res, next) {
   res.render('newuser', { title: 'Wellington Indian Community' });
 });
-
-
-
 
 
 

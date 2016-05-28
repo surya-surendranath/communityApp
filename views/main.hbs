@@ -1,5 +1,10 @@
+<form method="POST" id ="profileTopSet" action="/login" >
+                                    
+                                      <input type="submit" id="profileTopSet"  value="sign out" placeholder="Edit me"></input>
+                                          <input type="text" id="first_name" name="first_name" value={{user}}></input>    
+                              
+                              </form>            
 
-<b id="findPeople">FIND PEOPLE</b>
 {{#each infos}}
   
   <p id="feeds" >  <img src="{{image}}" id="imagePeople">  {{first_name}} {{last_name}}</p>
@@ -9,20 +14,40 @@
 
 <br>
 <p id="profileTop">Hi {{user}}</p>
-<form method="POST" id ="profileTopSet" action="/edit" >
+
+<h1>Welcome to WBConnect</h1>
+<div id ="Menubar">
+<form method="POST"  action="/people" >
                                     
-                                      <input type="submit" id="profileTopSet"  value="*" placeholder="Edit me"></input>
-                                          <input type="text" id="first_name" name="first_name" value={{user}}></input>   
-                               
+                                      <input type="submit" id="bar" value="Find People" placeholder="Edit me"></input>
+                                          <input type="text" id="first_name" name="first_name" value={{user}}></input>    
                               
                               </form>            
-<h1>Welcome to WBConnect</h1>
-
+<form method="POST"  action="/events" >
+                                    
+                                      <input type="submit" id="bar" value="Find Events" placeholder="Edit me"></input>
+                                          <input type="text" id="first_name" name="first_name" value={{user}}></input>    
+                              
+                              </form>    
+                              <form method="POST"  action="/tweets" >
+                                    
+                                      <input type="submit" id="bar" value="Bolly News" placeholder="Edit me"></input>
+                                          <input type="text" id="first_name" name="first_name" value={{user}}></input>    
+                              
+                              </form>    
+                              <form method="POST"  action="/" >
+                                    
+                                      <input type="submit" id="bar" value="Restaurents" placeholder="Edit me"></input>
+                                          <input type="text" id="first_name" name="first_name" value={{user}}></input>    
+                              
+                              </form>  
+                              </div>
 <div id="border">
+ 
 <br>
 
 <form method="POST" id ="postNew" action="/main" >
-                                      <input id="birth_place" type="text" name="birth_place"></input>   
+                                      <input id="feeds" type="text" name="feeds"></input>   
                                       <input type="submit" id="postNew" value="Post"></input>
                                           <input type="text" id="first_name" name="first_name" value={{user}}></input>   
                                
@@ -33,13 +58,7 @@
   {{#each name}}
   
   <p id="feeds" >  <img src="{{image}}" id="imagePeople">  {{first_name}} {{last_name}}</p>
-  <p id="feeds">{{birth_place}}</p>
-  <p id="feeds">{{designation}}</p>
-  <p id="feeds">{{gender}}</p>
-  <p id="feeds">{{Marriagestatus}}</p>
-  <p id="feeds">{{birth_place}}</p>
-  <p id="feeds">{{current_location}}</p>
-
+  <p>{{feeds}}
  <p>----------------------------</p>
 {{/each}}
 </div>

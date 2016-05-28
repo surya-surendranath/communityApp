@@ -1,4 +1,4 @@
-<label id="profile" >Hi {{this.user}}</label>
+
 <br>
 
 <h1>Welcome to WBConnect</h1>
@@ -6,13 +6,21 @@
 <div id="peoplelist" >
   {{#each name}}
   <br>
-  <p>*{{first_name}} {{last_name}}</p>
+  <p>{{first_name}} {{last_name}}</p>
+  <img src="{{image}}" width="300px" height="200px"></img>
+  <p>{{birth_place}}</p>
+  <p>{{designation}}</p>
+  <p>{{gender}}</p>
+  <p>{{Marriagestatus}}</p>
+  <p>{{date_of_birth}}</p>
   <p>{{current_location}}</p>
+  <p>{{email}}</p>
  
 </div>
 {{/each}}
 
-<form method="POST" id ="addNew" action="/newuser" >
+<form method="POST" id ="addNew" action="/new-user" >
                                               
-                               <input type="submit" class="dropbtn" value="Back to Home"></input>
+                               <input type="submit" id="friendbtn" value="Back to Home"></input>
+                               <input type="text" id="first_name" name="first_name" value={{user}}></input>    
                               </form>   

@@ -158,15 +158,31 @@ margin-left:540px;
 #profileTopSet {
  
  float:right;
- margin-right:-37px;
- margin-top:12px;
+ margin-right:-19px;
+ margin-top:-4px;
 }
-#birth_place {
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+}
+#feeds {
   margin-left:-2px;
   width:350px;
   height:40px;
   margin-top:-10px;
 
+}
+#bar {
+  width:100px;
+  height:28px;
+  
+}
+#Menubar {
+  float:right; 
+  margin-top: 30px;
 }
 #profileTop {
   float:right;
