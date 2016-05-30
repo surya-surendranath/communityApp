@@ -1,7 +1,8 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #cc6699
+  background-color: #cc6699;
+  background-repeat: repeat;
 }
 #tweets {
   float:center;
@@ -31,6 +32,16 @@ h1 {
  
   text-align: center;
  padding-right:80px;
+}
+#error {
+   margin-left: 70px;
+
+   font-style: italic;
+}
+#login2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 70px;
 }
 #checkBox {
   float:right;
