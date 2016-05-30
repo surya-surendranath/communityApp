@@ -11,6 +11,7 @@ var client = new Twitter({
 
 function getTweets (string, callback) {
   var params = {q: string};
+
   client.get('search/tweets.json', params, function (error, tweets, response) {
 
     var tweetArr = []
@@ -21,7 +22,7 @@ function getTweets (string, callback) {
     } else {
 
       tweetArr = Object.keys(tweets.statuses)
-
+      
       tweetArr = tweetArr.filter(function (key) {
         return tweets.statuses[key].metadata.iso_language_code === 'en'
       })

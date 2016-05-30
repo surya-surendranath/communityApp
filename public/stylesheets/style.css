@@ -1,8 +1,15 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #cc6699
 }
-
+#tweets {
+  float:center;
+  font-style: italic;
+ 
+  margin-left:120px;
+  font-weight: bold;
+}
 a {
   color: #00B7FF;
   text-decoration: none;
@@ -10,15 +17,27 @@ a {
 html {
   background-color:#ddd6f3;
 }
+#home {
+  float:right;
+  margin-top:-20px;
+  color: #660033;
+}
 h1 {
-  color: #7c795d;
+  color: #1a75ff;
   font-family: 'Trocchi', serif;
-  font-size: 45px;
+  font-size: 50px;
   font-weight: normal;
   line-height: 48px;
-  margin: 0;
+ 
   text-align: center;
-
+ padding-right:80px;
+}
+#checkBox {
+  float:right;
+  checked:checked;
+}
+#Restaurents {
+  font-weight: bold;
 }
 .peopleimg {
  margin-top:20px;
@@ -29,6 +48,30 @@ h1 {
   float:center;
   
  
+}
+#friendbtn {
+color:#660033;
+font-weight: bold;
+}
+#peoplelist {
+  float:center;
+  font-weight: bold;
+  margin-left:150px;
+   color:white;
+}
+#peoplelistName {
+  float:center;
+  font-weight: bold;
+  margin-left:180px;
+  font-size: 17px;
+  font-style:italic;
+  color: #e6ffff;
+}
+#map {
+  float:right;
+  width:500px;
+  height:80px;
+  
 }
 #mainpagelogin {
   margin-top: -150px;
@@ -111,6 +154,7 @@ margin-left:540px;
  #left-coverimg img {
    border:3px solid white;
    border-radius: 50%;
+
    box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
   -moz-box-shadow: 0 1px 2px rgba(34,25,25,0.4);
   -webkit-box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
@@ -158,8 +202,11 @@ margin-left:540px;
 #profileTopSet {
  
  float:right;
- margin-right:-19px;
+ margin-right:1px;
  margin-top:-4px;
+ color:#660033;
+ font-weight: bold;
+ font-style: italic;
 }
 table, th, td {
     border: 1px solid black;
@@ -175,6 +222,35 @@ th, td {
   margin-top:-10px;
 
 }
+#feeds1
+{
+
+   color: #00ff00;
+  
+    -webkit-animation-name: example; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 5s; /* Chrome, Safari, Opera */
+    -webkit-animation-iteration-count: 20;/* Chrome, Safari, Opera */
+
+    animation-name: example;
+    animation-duration: 5s;
+    animation-iteration-count: 20;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes example {
+    0%   {color: #00ff00;}
+    25%  {color: yellow;}
+    50%  {color: blue;}
+    100% {color: red;}
+}
+
+/* Standard syntax */
+@keyframes example {
+    0%   {color: #00ff00;}
+    25%  {color: yellow;}
+    50%  {color: blue;}
+    100% {color: red;}
+}
 #bar {
   width:100px;
   height:28px;
@@ -183,9 +259,16 @@ th, td {
 #Menubar {
   float:right; 
   margin-top: 30px;
+
 }
 #profileTop {
   float:right;
+  margin-right: -20px;
+  font-weight: bold;
+  font-size:16px;
+  font-style: italic;
+  margin-top:70px;
+  color: #800040;
 }
 #first_name {
 visibility:hidden;
@@ -198,8 +281,10 @@ margin-top:-400px;
 #postNew {
 
 margin-top: 3px;
-margin-left:160px;
+margin-left:200px;
 width:80px;
+color:#ff9933;
+font-weight: bold
 }
 
 
@@ -257,6 +342,7 @@ width:80px;
   float:center;
   margin-left:400px;
   margin-top:30px;
+  background-color: #c65353
 }
 #nextborder {
   border-style:solid;

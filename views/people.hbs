@@ -2,19 +2,19 @@
 <br>
 
 <h1>Welcome to WBConnect</h1>
-
-<div id="peoplelist" >
-  {{#each name}}
+{{#each name}}
+<div id="border" >
+  
   <br>
-  <p>{{first_name}} {{last_name}}</p>
-  <img src="{{image}}" width="300px" height="200px"></img>
-  <p>{{birth_place}}</p>
-  <p>{{designation}}</p>
-  <p>{{gender}}</p>
-  <p>{{Marriagestatus}}</p>
-  <p>{{date_of_birth}}</p>
-  <p>{{current_location}}</p>
-  <p>{{email}}</p>
+  <p id="peoplelistName">{{first_name}} {{last_name}}</p>
+  <img id="peoplelist" src="{{image}}" width="300px" height="200px"></img>
+  <p id="peoplelist">{{birth_place}}</p>
+  <p id="peoplelist">{{designation}}</p>
+  <p id="peoplelist">{{gender}}</p>
+  <p id="peoplelist">{{Marriagestatus}}</p>
+  <p id="peoplelist">{{date_of_birth}}</p>
+  <p id="peoplelist">{{current_location}}</p>
+  <p id="peoplelist">{{email}}</p>
  
 </div>
 {{/each}}

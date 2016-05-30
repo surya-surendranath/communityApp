@@ -6,6 +6,7 @@ var knex = Knex(config[process.env.NODE_ENV || 'development'])
 var db = require('../lib/db')(knex)
 var model = require('../lib/model') (knex)
 var app = require('express')();
+var getTweets = require('../twitter-api/twitter')
 
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
@@ -17,12 +18,22 @@ router.get('/', function(req, res, next) {
 router.get('/new-user', function(req, res, next) {
   res.redirect('newuser', { title: 'Wellington Indian Community' });
 });
+router.post('/addEvent', function(req, res){
+  res.render('addEvent',{firstname:'Nelly'});
+});
 
- router.post('/', function(req, res, next) {
+ router.post('/login', function(req, res, next) {
  db.addNew('userInfo',req.body, function(err,data){
   res.render('newuser',{});
  })
  
+});
+ router.post('/googlemap', function(req, res, next) {
+ db.getAll('Restaurents', function(err, data) {
+   
+  res.render('googlemap',{Restaurents:data,user:req.body.first_name})
+
+ })
 });
 router.post('/people', function(req, res, next) {
 
@@ -31,32 +42,19 @@ router.post('/people', function(req, res, next) {
  res.render('people',{name:data,user:req.body.first_name})
 })
 });
+router.post('/tweets', function(req, res, next) {
 
-
-app.get('/socket', function(req, res){
-  res.sendFile(__dirname + '/socket.html');
+  getTweets('BollywoodNews', function(err, tweetArray){
+   console.log(req.body,"tweets")
+ res.render('bollynews',{user:req.body.first_name,tweet0:tweetArray[0],tweet1:tweetArray[1],tweet2:tweetArray[2],tweet3:tweetArray[3],tweet4:tweetArray[4],tweet5:tweetArray[5],tweet6:tweetArray[6],tweet7:tweetArray[7],tweet8:tweetArray[8],tweet9:tweetArray[9],tweet10:tweetArray[10],tweet11:tweetArray[11],tweet2:tweetArray[12],tweet2:tweetArray[12],tweet13:tweetArray[13],tweet14:tweetArray[14],tweet15:tweetArray[15],tweet16:tweetArray[16]})
+  console.log(tweetArray,"tweets")
+})
 });
 
-app.post('/socket', function(req, res, next){
-  
-  res.sendFile(__dirname + '/socket.html');
-});
-router.post('/socket', function(req, res, next){
-  
-  res.sendFile(__dirname + '/socket.html');
-});
 
-router.post('/login', function(req, res, next){
-  
-   res.render('login',{ title: 'Wellington Indian Community' })
-});
 
-io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    console.log('message: ' + msg);
-    console.log("hdhd")
-  });
-});
+
+
 router.post('/newuser', function(req, res, next) {
 
   model.login(req.body.first_name, req.body.password)
@@ -65,7 +63,9 @@ router.post('/newuser', function(req, res, next) {
     db.getAllSort('users', function(err, data) {
       console.log(req.body.first_name,"hi")
     res.render('main',{user:req.body.first_name,name:data,image:data.image});
+    
   })
+
   })
 router.post('/new-user', function(req, res, next) {
 
