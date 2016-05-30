@@ -42,6 +42,7 @@ router.post('/people', function(req, res, next) {
  res.render('people',{name:data,user:req.body.first_name})
 })
 });
+
 router.post('/tweets', function(req, res, next) {
 
   getTweets('BollywoodNews', function(err, tweetArray){
@@ -50,10 +51,6 @@ router.post('/tweets', function(req, res, next) {
   console.log(tweetArray,"tweets")
 })
 });
-
-
-
-
 
 router.post('/newuser', function(req, res, next) {
 
@@ -69,7 +66,6 @@ router.post('/newuser', function(req, res, next) {
   })
 router.post('/new-user', function(req, res, next) {
 
-  
   console.log(req.body,"hi")
  // .then(function(checkPassword) {
     db.getAllSort('users', function(err, data) {
@@ -94,7 +90,7 @@ router.post('/new-user', function(req, res, next) {
        console.log(info,"sdjfhdskj")
         console.log(info.image,"sdjfhdskj")
         db.getAllSort('users', function(err, data) {
- res.render('main',{name:data,user:req.body.first_name,infos:info.image,image:info.image})
+        res.render('main',{name:data,user:req.body.first_name,infos:info.image,image:info.image})
 }) 
 });
 })
